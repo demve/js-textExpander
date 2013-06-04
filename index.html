@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+	<head>
+		<title>JS TextExpander</title>
+		<style>
+			*{
+				margin:0;
+				padding:0;
+				box-sizing:border-box;
+			}
+			a.btn{
+				display:inline-block;
+				padding:5px;
+				border: 1px solid #aeb;
+				background: #cfe;
+				border-radius:4px;
+				text-decoration:none;
+				color:#359;
+				min-width:100px;
+				text-align:center;
+			}
+			html, body{
+				width:100%;
+				background:#cef;
+			}
+			.box{
+				width:calc(50% - 10px);
+				border:1px solid #abe;
+				padding:20px;
+				margin:5px;
+				float:left;
+			}
+			.write{
+			}
+			h1{
+				background:#abe;
+			}
+			button{
+				width:100%;
+				display:block;
+				margin-top:-10px;
+				font-size:25px;
+				padding:5px;
+			}
+			textarea{
+				width:100%;
+				height:500px;
+			}
+			.output{
+				border:1px solid #abe;
+				background:#cee;
+				height:250px;
+				overflow-y:auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="escribir box">
+			<h1>Write Here:</h1>
+<textarea>
+{{title()}}
+{{title(Hola a Todos)}}
+{{button()}}
+{{button(Prueba)}}
+{{button(Prueba2|index.php)}}
+</textarea>
+			<button>Execute!</button>
+		</div>
+		<div class="resultado box">
+			<h1>HTML Output</h1>
+			<div class="output html"></div>
+			<h1>TXT Output</h1>
+			<pre class="output txt"></pre>
+		</div>
+		<script src="jquery.min.js"></script>
+		<script src="textexpander.js"></script>
+		<script src="example.rules.js"></script>
+		<script>
+			$(document).ready(function(){
+				var ta = $("textarea")
+				,	bt = $("button")
+				,	oh = $(".output.html")
+				,	ot = $(".output.txt")
+				,	txt ="";
+				bt.on("click",function(){
+					txt = textExpander.parse(ta.val());
+					ot.text(txt);
+					oh.html(txt);
+				});
+			});			
+		</script>
+	</body>
+</html>
