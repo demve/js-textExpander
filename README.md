@@ -2,8 +2,10 @@ JS TextExpander:
 ================
 About:
 ------
-This library helps the generation of complex code using simple functions, designed for no-tech related people in charge of CMS.
+This library helps the generation of complex code using simple 'functions/[snippets]' inside the text, designed for **helping no-tech related people in charge of CMS websites**.
+
 The basic workflow goes like this:
+
 1. Create a script to generate your custom expansion or rules using the [window object] textExpander.add() method.
 2. Get the textarea value (or any text) with any method/library you like.
 3. Call the [window object] textExpander.parse() method on that text.
